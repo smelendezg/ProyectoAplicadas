@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
-from servicios.archivo_servicio import leer_csv
-from servicios.algoritmo_servicio import ejecutar_algoritmo
-from utils.formateador_resultados import formatear_resultado
+from app.servicios.archivo_servicio import leer_csv
+from app.servicios.algoritmo_servicio import ejecutar_algoritmo
+from app.utils.formateador_resultados import formatear_resultado
 
 app = Flask(__name__)
 
@@ -59,9 +59,3 @@ def obtener_parametros(form):
         parametros['prueba'] = float(parametros['prueba'])
     
     return parametros
-
-def validarDatos():
-    return 1
-
-if __name__ == '__main__':
-    app.run()
