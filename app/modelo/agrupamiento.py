@@ -3,7 +3,7 @@ import math
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from kmodes.kmodes import KModes
-from .ajustes import aplicar_ajuste
+from app.modelo.ajustes import aplicar_ajuste
 
 def k_por_defecto(n_filas: int) -> int:
     try:

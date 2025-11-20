@@ -1,7 +1,7 @@
-from modelo.ajustes import aplicar_ajuste
-from modelo.agrupamiento import ejecutar_kmedias, ejecutar_kmodas
-from modelo.chi_merge import chi_merge
-from modelo.arbol_decision import entrenar_arbol
+from app.modelo.ajustes import aplicar_ajuste
+from app.modelo.agrupamiento import ejecutar_kmedias, ejecutar_kmodas
+from app.modelo.chi_merge import chi_merge
+from app.modelo.arbol_decision import entrenar_arbol
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 

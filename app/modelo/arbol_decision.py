@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, export_text
 from sklearn.metrics import accuracy_score
-from .ajustes import aplicar_ajuste
+from app.modelo.ajustes import aplicar_ajuste
 
 def entrenar_arbol(df, col_objetivo, tipo_ajuste, criterio, prueba=0.3, profundidad_max=4):
 

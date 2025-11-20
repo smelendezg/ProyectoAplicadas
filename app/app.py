@@ -2,8 +2,13 @@ from flask import Flask, render_template, request
 from app.servicios.archivo_servicio import leer_csv
 from app.servicios.algoritmo_servicio import ejecutar_algoritmo
 from app.utils.formateador_resultados import formatear_resultado
+import os
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+TEMPLATES_DIR = os.path.join(os.path.dirname(BASE_DIR), 'templates')
+
+app = Flask(__name__, static_folder=STATIC_DIR, template_folder=TEMPLATES_DIR)
 
 @app.route('/')
 def inicio():
