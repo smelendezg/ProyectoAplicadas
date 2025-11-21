@@ -2,6 +2,7 @@ from app.modelo.ajustes import aplicar_ajuste
 from app.modelo.agrupamiento import ejecutar_kmedias, ejecutar_kmodas
 from app.modelo.chi_merge import chi_merge
 from app.modelo.arbol_decision import entrenar_arbol
+from app.modelo.agrupamiento import k_por_defecto
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 
@@ -29,7 +30,8 @@ def _ejecutar_kmedias(df, tipo_ajuste, parametros):
     k = parametros.get("k")
     col_grupo  = parametros.get("col_grupo")
     col_valor  = parametros.get("col_valor")
-
+    if k is None or k < 2:     
+        k = k_por_defecto(len(df))
     if not col_valor or not col_grupo:
         raise ValueError("Debes indicar la columna de valor numérico y la columna de clase para K-Medias.")
     
@@ -39,6 +41,8 @@ def _ejecutar_kmodas(df, parametros):
     k = parametros.get("k")
     col_valor = (parametros.get("col_valor") or "").strip()
     col_grupo = parametros.get("col_grupo")
+    if k is None or k < 2:     
+        k = k_por_defecto(len(df))
     if not col_valor or not col_grupo:
         raise ValueError("Debes indicar la columna categórica y la columna de clase para K-Modas.")
     
